@@ -77,5 +77,3 @@ def retrieveTree(i):
                   ]
     return listOfTree[i]
 
-myTree = retrieveTree(0)
-createPlot(myTree)
