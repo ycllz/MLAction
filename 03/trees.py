@@ -111,9 +111,15 @@ def grabTree(filename):
     fr = open(filename)
     return pickle.load(fr)
 
-myDat, labels = createDataSet()
-myTree = treePlotter.retrieveTree(0)
-storeTree(myTree, 'classifierStorage.txt')
-grabTree('classifierStorage.txt')
+# myDat, labels = createDataSet()
+# myTree = treePlotter.retrieveTree(0)
+# storeTree(myTree, 'classifierStorage.txt')
+# grabTree('classifierStorage.txt')
 # print classify(myTree, labels, [1, 0])
 # print classify(myTree, labels, [1, 1])
+
+fr = open('lenses.txt')
+lenses = [inst.strip().split('\t') for inst in fr.readlines()]
+lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
+lensesTree = createTree(lenses, lensesLabels)
+treePlotter.createPlot(lensesTree)
